@@ -1,9 +1,10 @@
+import "tailwindcss/tailwind.css"; // Import Tailwind CSS
+import Mainpage from "./pages/Mainpage";
+
 function App() {
   return (
     <>
-      <div className=" bg-slate-700">
-        <h1>eka</h1>
-      </div>
+      <Mainpage />
     </>
   );
 }
