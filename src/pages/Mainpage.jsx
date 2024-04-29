@@ -122,7 +122,7 @@ const Mainpage = () => {
   };
 
   const getInputClass = (name) => {
-    return `block w-full bg-transparent border placeholder:text-xl mt-2 px-4 py-4 mb-4 border-gray-400 outline-none rounded-lg ${
+    return `block w-full bg-transparent border placeholder:text-lg mt-2 px-4 py-2 mb-4 border-gray-400 outline-none rounded-lg ${
       formErrors[name] ? "border-red-700" : "border-gray-400"
     }`;
   };
@@ -151,10 +151,10 @@ const Mainpage = () => {
       /> */}
       {/* <Notification /> */}
       <Toastify />
-      <div className="flex flex-col lg:flex-row w-full h-screen relative ">
+      <div className="flex flex-col lg:flex-row  w-full h-[120vh] relative overflow-x-scroll ">
         {/* TOP */}
         <div
-          className=" basis-[40%] bg-center bg-no-repeat bg-cover bg-slate-700"
+          className=" basis-[40%] flex-auto bg-center bg-no-repeat bg-cover h-[40%] "
           style={{ backgroundImage: 'url("/bg-main-desktop.png")' }}
         ></div>
         {/* BOTTOM */}
@@ -185,9 +185,9 @@ const Mainpage = () => {
                   // className=" block w-full bg-transparent border placeholder:text-xl mt-2 px-4 py-4 mb-4 border-gray-400 outline-none rounded-lg"
                   className={getInputClass("cardname")}
                 />
-                <p>{formErrors.cardname}</p>
+                <p className=" text-red-600">{formErrors.cardname}</p>
 
-                <label htmlFor="" className=" text-xl  font-bold">
+                <label htmlFor="" className=" text-md  font-bold">
                   CARD NUMBER
                 </label>
                 <input
@@ -196,8 +196,9 @@ const Mainpage = () => {
                   value={formValue.cardnumber}
                   onChange={handleChange}
                   placeholder="e.g 1234 5678 9123 0000"
-                  className=" block w-full bg-transparent border placeholder:text-xl mt-2 px-4 py-4 mb-4 border-gray-400 outline-none rounded-lg"
+                  className={getInputClass("cardnumber")}
                 />
+                <p className=" text-red-600">{formErrors.cardname}</p>
                 <div className=" flex gap-4">
                   <div>
                     <label htmlFor="" className=" text-xl  font-bold">
@@ -210,8 +211,9 @@ const Mainpage = () => {
                       value={formValue.month}
                       onChange={handleChange}
                       placeholder="MM"
-                      className="block border border-gray-300 w-[6rem]  placeholder:text-2xl mt-2 rounded-lg px-4 py-4"
+                      className={getInputClass("month")}
                     />
+                    <p className=" text-red-600">{formErrors.cardname}</p>
                   </div>
                   <div>
                     <label htmlFor="" className=" text-xl  font-bold">
@@ -224,8 +226,9 @@ const Mainpage = () => {
                       maxLength="2"
                       value={formValue.year}
                       onChange={handleChange}
-                      className="block border border-gray-300 w-[6rem]  placeholder:text-2xl mt-2 rounded-lg px-4 py-4"
+                      className={getInputClass("year")}
                     />
+                    <p className=" text-red-600">{formErrors.cardname}</p>
                   </div>
                   <div>
                     <label htmlFor="" className=" text-xl  font-bold">
@@ -237,8 +240,9 @@ const Mainpage = () => {
                       value={formValue.cvc}
                       onChange={handleChange}
                       placeholder="e.g 123"
-                      className=" w-full block border border-gray-300 mt-2 placeholder:text-2xl rounded-lg px-4 py-4"
+                      className={getInputClass("cvc")}
                     />
+                    <p className=" text-red-600">{formErrors.cardname}</p>
                   </div>
                 </div>
                 <button className=" w-full px-4 py-4 mt-8 rounded-lg text-white text-2xl font-semibold bg-fuchsia-500">
@@ -252,7 +256,7 @@ const Mainpage = () => {
       {/* cards */}
       {/* front Card */}
       <div
-        className="  w-[23rem] h-fit sm:w-[30rem] text-white px-4 py-8 bg-no-repeat absolute top-[20%] left-[1%] sm:left-[10%] md:left-[15%] z-50 rounded-xl lg:left-[11%] "
+        className="  w-[23rem] h-fit sm:w-[30rem] text-white px-4 py-8 bg-no-repeat absolute top-[30%] left-[1%] sm:left-[10%] md:left-[15%] z-50 rounded-xl lg:left-[11%] "
         style={{ backgroundImage: 'url("/bg-card-front.png")' }}
       >
         {/* shapes */}
@@ -277,7 +281,7 @@ const Mainpage = () => {
                 ? formValue.cardname.toUpperCase()
                 : "JaneDoe"}
             </h1>
-            <h1>
+            <h1 className=" absolute right-20">
               {formValue.month && formValue.year
                 ? `${formValue.month.padStart(2, "0")}/${formValue.year}`
                 : "MM/YY"}
@@ -286,7 +290,7 @@ const Mainpage = () => {
         </div>
       </div>
       {/* back card */}
-      <div className=" w-fit h-fit rounded-lg bg-rose-800 t absolute z-0 top-[6%] lg:top-[45%] sm:left-[20%] md:left-[30%] lg:left-[20%] right-[10px]">
+      <div className=" w-fit h-fit rounded-lg  absolute z-0 top-[6%] lg:top-[45%] sm:left-[20%] md:left-[30%] lg:left-[20%] right-[10px]">
         <div
         // className=" w-full h-full relative text-white rounded-lg bg-no-repeat bg-cover bg-center  "
         // style={{ backgroundImage: 'url("/bg-card-back.png")' }}
